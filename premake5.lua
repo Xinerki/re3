@@ -85,6 +85,11 @@ workspace "re3"
 			"bsd-amd64-librw_gl3_glfw-oal"
 		}
 
+	filter { "system:psp" }
+		platforms {
+			"psp-x86-librw_gu-oal"
+		}
+
 	filter "configurations:Debug"
 		defines { "DEBUG" }
 		
@@ -124,6 +129,9 @@ workspace "re3"
 		end
 		
 	filter "platforms:*x86-librw_gl3_glfw*"
+		includedirs { path.join(_OPTIONS["pspsdk"], "include") }
+
+	filter "platforms:*x86-librw_gu*"
 		includedirs { path.join(_OPTIONS["glfwdir32"], "include") }
 		
 	filter "platforms:*amd64-librw_gl3_glfw*"
